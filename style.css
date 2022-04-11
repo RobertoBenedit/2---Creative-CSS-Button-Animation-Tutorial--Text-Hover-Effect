@@ -1,0 +1,72 @@
+:root {
+    --color-one: #fffccc;
+    --color-two: #000888;
+    --color-three: rgba(0, 0, 0, 0);
+    --color-four: rgb(244, 52, 52);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.button {
+    margin: 30px;
+    width: 160px;
+    height: 60px;
+    border: 1px solid var(--color-two);
+    position: relative;
+}
+.button p {
+    line-height: 60px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    position: relative;
+    transition: 0.8s;
+    z-index: 10;
+}
+.button span {
+    color: transparent;
+    position: relative;
+}
+.button span::before {
+    content: "H";
+    position: absolute;
+    width: auto;
+    height: 60px;
+    color: var(--color-two);
+    transition: 0.2s ease-out;
+}
+.button:nth-of-type(2) span::before {
+    content: "E";
+}
+.button:nth-of-type(3) span::before {
+    content: "T";
+}
+.button:nth-of-type(4) span::before {
+    content: "O";
+}
+.button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-three);
+    transition: 0.8s;
+    z-index: 1;
+}
+.button:hover::after {
+    background-color: var(--color-four);
+    transform: rotate(10deg);
+}
+.button:hover p {
+    color: var(--color-one);
+}
+.button:hover span::before {
+    color: var(--color-one);
+    transform: translate(-65%, -10%) rotate(360deg);
+    font-size: 80px;
+}
